@@ -16,10 +16,8 @@ public:
                     longestSubstr.pop();
                 }
 
-                frequency[longestSubstr.front() - 0]--;
                 longestSubstr.pop();
                 longestSubstr.push(s[i]);
-                frequency[s[i] - 0]++;
             }
             else{
                 longestSubstr.push(s[i]);
