@@ -6,14 +6,13 @@ public:
 
         for(int i=0; i<words.size(); i++){
             int startingPos = 0;
-            int isSubSequence = 0;
+            int isSubSequence = 1;
 
             for(int j=0; j<words[i].size(); j++){
                 int index = s.find(words[i][j], startingPos);
 
                 if(index >= 0){
                     startingPos = index+1;
-                    isSubSequence = 1;
                 }
                 else{
                     isSubSequence = 0;
