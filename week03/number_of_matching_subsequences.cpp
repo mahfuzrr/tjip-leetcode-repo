@@ -1,30 +1,32 @@
 class Solution {
 public:
-
-    bool isSubsequence(string initialString, string s){
-        int j = 0;
-
-        for(int i=0; i<initialString.length() && j < s.length(); i++){
-            if(initialString[i] == s[j])j++;
-        }
-
-        return j == s.length();
-    }
-
     int numMatchingSubseq(string s, vector<string>& words) {
-        
-        int totalCount = 0;
 
-        map<string, int>subSeqFrequency;
+        int totalAns = 0;
 
-        for(auto &w: words){
-            subSeqFrequency[w]++;
+        for(int i=0; i<words.size(); i++){
+            int startingPos = 0;
+            int isSubSequence = 0;
+
+            for(int j=0; j<words[i].size(); j++){
+                int index = s.find(words[i][j], startingPos);
+
+                if(index >= 0){
+                    startingPos = index+1;
+                    isSubSequence = 1;
+                }
+                else{
+                    isSubSequence = 0;
+                     break;
+                }
+            }
+
+            totalAns += isSubSequence;
         }
 
-        for(auto &it:subSeqFrequency){
-            if(isSubsequence(s, it.first))totalCount+=(it.second);
-        }
-
-        return totalCount;
+        return totalAns;
     }
 };
+
+/** using hashmap gives 29 - 35% faster runtime
+    but this solution gives 95% faster runtime **/
