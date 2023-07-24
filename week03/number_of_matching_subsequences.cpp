@@ -28,4 +28,4 @@ public:
 };
 
 /** using hashmap gives 29 - 35% faster runtime
-    but this solution gives 95% faster runtime **/
+    but this solution gives 93% faster runtime **/
